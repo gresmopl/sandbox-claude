@@ -405,6 +405,48 @@
     }
     .tip strong { color: var(--text); font-weight: 600; }
 
+    /* ── INFO ROW ── */
+    .info-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-top: 20px;
+    }
+    .info-box {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 16px 18px;
+      border-top: 3px solid var(--green);
+    }
+    .info-box-numbers { border-top-color: var(--amber); }
+    .info-box-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--forest);
+      margin-bottom: 10px;
+    }
+    .info-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5px 12px;
+    }
+    .info-item {
+      display: flex;
+      flex-direction: column;
+      font-size: 11px;
+    }
+    .info-label {
+      color: var(--muted);
+      font-size: 9.5px;
+      font-weight: 600;
+      letter-spacing: .3px;
+      text-transform: uppercase;
+    }
+    .info-val { color: var(--text); font-weight: 500; }
+    .info-val.bold { color: var(--forest); font-weight: 700; font-size: 13px; }
+
     /* ── FOOTER ── */
     .footer {
       background: var(--forest);
@@ -538,6 +580,15 @@
       .tips-grid { grid-template-columns: 1fr 1fr 1fr; gap: 4px 16px; }
       .tip { font-size: 9px; padding-left: 9px; line-height: 1.35; }
 
+      /* Info row */
+      .info-row { gap: 10px; margin-top: 12px; }
+      .info-box { padding: 10px 12px; border-radius: 8px; }
+      .info-box-title { font-size: 0.85rem; margin-bottom: 7px; }
+      .info-grid { gap: 4px 10px; }
+      .info-item { font-size: 9px; }
+      .info-label { font-size: 8px; }
+      .info-val.bold { font-size: 11px; }
+
       /* Footer */
       .footer { padding: 10px 28px; }
       .footer-left { font-size: 10px; }
@@ -555,7 +606,7 @@
 <body>
 
 <div class="print-bar no-print">
-  <span style="font-family:'Inter',sans-serif;font-size:11px;color:#999;margin-right:auto;padding-left:4px;">v1.5 · 2026-04-06</span>
+  <span style="font-family:'Inter',sans-serif;font-size:11px;color:#999;margin-right:auto;padding-left:4px;">v1.6 · 2026-04-06</span>
   <a class="pdf-btn" href="prospekt_karpacz.pdf" target="_blank">Pobierz PDF</a>
   <button class="print-btn" onclick="window.print()">Drukuj / Zapisz jako PDF</button>
 </div>
@@ -893,6 +944,35 @@
         <div class="tip"><strong>Apteka</strong> — ul. Konstytucji 3 Maja, centrum Karpacza</div>
         <div class="tip"><strong>Czas na Śnieżkę</strong> — licz z rezerwą, zależy od kondycji</div>
       </div>
+    </div>
+
+    <!-- ═══ PENSJONAT INFO + NUMERY ═══ -->
+    <div class="info-row">
+
+      <div class="info-box">
+        <div class="info-box-title">Informacje o pensjonacie</div>
+        <div class="info-grid">
+          <div class="info-item"><span class="info-label">Check-in</span><span class="info-val">od 14:00</span></div>
+          <div class="info-item"><span class="info-label">Check-out</span><span class="info-val">do 11:00</span></div>
+          <div class="info-item"><span class="info-label">Śniadanie</span><span class="info-val">7:30–10:00</span></div>
+          <div class="info-item"><span class="info-label">Parking</span><span class="info-val">bezpłatny, na miejscu</span></div>
+          <div class="info-item"><span class="info-label">WiFi</span><span class="info-val">sieć: Pensjonat_Guest</span></div>
+          <div class="info-item"><span class="info-label">Recepcja</span><span class="info-val">7:00–22:00</span></div>
+        </div>
+      </div>
+
+      <div class="info-box info-box-numbers">
+        <div class="info-box-title">Ważne numery</div>
+        <div class="info-grid">
+          <div class="info-item"><span class="info-label">Pogotowie</span><span class="info-val bold">112</span></div>
+          <div class="info-item"><span class="info-label">GOPR Karpacz</span><span class="info-val bold">985</span></div>
+          <div class="info-item"><span class="info-label">Policja</span><span class="info-val bold">997</span></div>
+          <div class="info-item"><span class="info-label">Taxi Karpacz</span><span class="info-val">+48 75 761 80 00</span></div>
+          <div class="info-item"><span class="info-label">Recepcja</span><span class="info-val">tel. w pokoju: 0</span></div>
+          <div class="info-item"><span class="info-label">Apteka (centrum)</span><span class="info-val">+48 75 761 97 40</span></div>
+        </div>
+      </div>
+
     </div>
 
   </div>
