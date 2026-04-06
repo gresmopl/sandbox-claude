@@ -4,709 +4,816 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Przewodnik Gościa – Karpacz</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Source+Sans+3:wght@300;400;600&display=swap');
-
     :root {
-      --navy: #1a2e4a;
-      --gold: #b8973a;
-      --light-gold: #f5ead8;
-      --slate: #4a5568;
-      --light: #f8f7f4;
-      --white: #ffffff;
-      --border: #ddd5c8;
+      --forest:  #0d1f16;
+      --green:   #1d4f33;
+      --green2:  #2d7a50;
+      --amber:   #c47d16;
+      --amber-bg:#fdf4e3;
+      --amber-border: #e8c87a;
+      --bg:      #f5f3ef;
+      --card:    #ffffff;
+      --text:    #1a1a18;
+      --muted:   #6b7063;
+      --border:  #e2ddd5;
+      --radius:  14px;
     }
 
-    * { box-sizing: border-box; margin: 0; padding: 0; }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     body {
-      font-family: 'Source Sans 3', 'Segoe UI', sans-serif;
-      background: #e8e4de;
-      color: #2d3748;
-      padding: 30px 20px;
+      font-family: 'Inter', system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      font-size: 14px;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
     }
 
+    /* ── PAGE WRAPPER ── */
     .page {
-      background: var(--white);
-      max-width: 794px;
-      margin: 0 auto 40px;
-      padding: 0;
-      box-shadow: 0 8px 32px rgba(0,0,0,0.18);
+      max-width: 820px;
+      margin: 32px auto;
+      background: var(--card);
+      box-shadow: 0 2px 8px rgba(0,0,0,.06), 0 16px 48px rgba(0,0,0,.10);
+      border-radius: 4px;
+      overflow: hidden;
     }
 
-    /* ── HEADER ── */
-    .header {
-      background: var(--navy);
-      color: var(--white);
-      padding: 48px 52px 36px;
+    /* ── HERO HEADER ── */
+    .hero {
+      background: var(--forest);
+      padding: 52px 56px 44px;
       position: relative;
       overflow: hidden;
     }
-    .header::before {
+    .hero::before {
       content: '';
       position: absolute;
-      top: 0; right: 0; bottom: 0;
-      width: 240px;
-      background: linear-gradient(135deg, rgba(184,151,58,0.15), rgba(184,151,58,0.05));
-      clip-path: polygon(30% 0%, 100% 0%, 100% 100%, 0% 100%);
+      inset: 0;
+      background:
+        radial-gradient(ellipse 60% 80% at 80% 50%, rgba(45,122,80,.25) 0%, transparent 70%),
+        radial-gradient(ellipse 40% 60% at 20% 80%, rgba(196,125,22,.12) 0%, transparent 60%);
+      pointer-events: none;
     }
-    .header-top {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
+    /* mountain silhouette */
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 60px;
+      background: var(--forest);
+      clip-path: polygon(0 100%, 0 70%, 8% 55%, 16% 68%, 24% 40%, 32% 58%, 40% 30%, 48% 52%, 56% 22%, 64% 45%, 72% 28%, 80% 50%, 88% 35%, 94% 55%, 100% 38%, 100% 100%);
+      opacity: .6;
     }
-    .hotel-name {
-      font-family: 'Playfair Display', Georgia, serif;
-      font-size: 2rem;
+    .hero-inner { position: relative; z-index: 1; }
+    .hero-eyebrow {
+      font-family: 'Inter', sans-serif;
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--green2);
+      margin-bottom: 14px;
+    }
+    .hero-name {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: clamp(2rem, 5vw, 3rem);
       font-weight: 700;
-      letter-spacing: 0.5px;
-      line-height: 1.2;
-      color: var(--white);
+      color: #fff;
+      line-height: 1.1;
+      letter-spacing: -.5px;
     }
-    .hotel-tagline {
-      font-size: 0.9rem;
-      color: rgba(255,255,255,0.65);
-      margin-top: 6px;
-      font-weight: 300;
-      letter-spacing: 0.5px;
-    }
-    .header-address {
-      text-align: right;
-      font-size: 0.82rem;
-      color: rgba(255,255,255,0.7);
-      line-height: 1.6;
-      margin-top: 4px;
-    }
-    .header-divider {
-      height: 1px;
-      background: linear-gradient(to right, rgba(184,151,58,0.8), rgba(184,151,58,0.1));
-      margin: 20px 0 18px;
-    }
-    .header-subtitle {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.05rem;
-      color: var(--gold);
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      font-weight: 400;
-    }
-
-    /* ── BODY ── */
-    .content {
-      padding: 36px 52px 48px;
-    }
-
-    /* ── SECTION ── */
-    .section { margin-bottom: 40px; }
-    .section-header {
+    .hero-name span { color: #a8d4b8; font-weight: 400; font-style: italic; }
+    .hero-meta {
+      margin-top: 20px;
       display: flex;
+      gap: 24px;
       align-items: center;
-      gap: 14px;
-      margin-bottom: 20px;
-      padding-bottom: 10px;
-      border-bottom: 2px solid var(--light-gold);
-    }
-    .section-icon {
-      width: 38px; height: 38px;
-      background: var(--navy);
-      border-radius: 8px;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 1.2rem;
-      flex-shrink: 0;
-    }
-    .section-title {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.35rem;
-      color: var(--navy);
-      font-weight: 600;
-    }
-
-    /* ── TRAIL CARDS ── */
-    .trail-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 14px;
-    }
-    .trail-card {
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      padding: 14px 16px;
-      background: var(--light);
-      border-left: 4px solid var(--navy);
-    }
-    .trail-card.easy  { border-left-color: #48bb78; }
-    .trail-card.medium { border-left-color: #ed8936; }
-    .trail-card.hard  { border-left-color: #e53e3e; }
-    .trail-name {
-      font-weight: 600;
-      font-size: 0.98rem;
-      color: var(--navy);
-      margin-bottom: 6px;
-    }
-    .trail-meta {
-      font-size: 0.8rem;
-      color: var(--slate);
-      display: flex;
-      gap: 12px;
       flex-wrap: wrap;
-      margin-bottom: 6px;
     }
-    .trail-meta span { white-space: nowrap; }
-    .badge {
-      display: inline-block;
-      font-size: 0.7rem;
-      font-weight: 600;
-      padding: 2px 8px;
-      border-radius: 10px;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
+    .hero-addr {
+      font-size: 12px;
+      color: rgba(255,255,255,.55);
+      line-height: 1.7;
     }
-    .badge-easy   { background: #c6f6d5; color: #276749; }
-    .badge-medium { background: #feebc8; color: #7b341e; }
-    .badge-hard   { background: #fed7d7; color: #742a2a; }
-    .badge-blue   { background: #ebf8ff; color: #2c5282; }
-    .trail-desc {
-      font-size: 0.8rem;
-      color: var(--slate);
-      margin-top: 6px;
-      line-height: 1.5;
+    .hero-addr strong { color: rgba(255,255,255,.85); font-weight: 500; }
+    .hero-divider {
+      width: 1px; height: 36px;
+      background: rgba(255,255,255,.15);
     }
-    .trail-card.full { grid-column: 1 / -1; border-left-color: #805ad5; }
-    .badge-gondola { background: #e9d8fd; color: #553c9a; }
-    .badge-walk    { background: #c6f6d5; color: #276749; }
-    .badge-car     { background: #ebf8ff; color: #2c5282; }
-
-    /* ── FROM-HOTEL CHIP ── */
-    .from-hotel {
+    .hero-tag {
       display: inline-flex;
       align-items: center;
-      gap: 5px;
-      font-size: 0.72rem;
-      font-weight: 700;
-      background: var(--navy);
-      color: #fff;
-      padding: 2px 9px;
-      border-radius: 10px;
-      margin-bottom: 6px;
-      letter-spacing: 0.3px;
+      gap: 6px;
+      background: rgba(255,255,255,.08);
+      border: 1px solid rgba(255,255,255,.15);
+      border-radius: 99px;
+      padding: 5px 13px;
+      font-size: 11px;
+      color: rgba(255,255,255,.7);
+      font-weight: 500;
+    }
+    .hero-tag .dot {
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--green2);
     }
 
-    /* ── SUBSECTION LABEL ── */
-    .subsection-label {
-      font-size: 0.78rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 1.5px;
-      color: var(--gold);
-      margin: 18px 0 10px;
-      padding-left: 2px;
+    /* ── BODY PADDING ── */
+    .body { padding: 44px 56px 52px; }
+
+    /* ── SECTION ── */
+    .section { margin-bottom: 44px; }
+    .section-head {
+      display: flex;
+      align-items: baseline;
+      gap: 14px;
+      margin-bottom: 22px;
     }
-    .subsection-label:first-child { margin-top: 0; }
+    .section-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 3rem;
+      font-weight: 700;
+      color: var(--border);
+      line-height: 1;
+      flex-shrink: 0;
+    }
+    .section-title-wrap {}
+    .section-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.65rem;
+      font-weight: 600;
+      color: var(--forest);
+      line-height: 1;
+    }
+    .section-sub {
+      font-size: 11px;
+      color: var(--muted);
+      letter-spacing: .5px;
+      margin-top: 3px;
+    }
+    .section-rule {
+      height: 2px;
+      background: linear-gradient(to right, var(--green), transparent);
+      margin-bottom: 22px;
+      border-radius: 2px;
+    }
 
     /* ── DISCLAIMER ── */
     .disclaimer {
-      font-size: 0.72rem;
-      color: #a0aec0;
+      font-size: 10.5px;
+      color: var(--muted);
       font-style: italic;
-      margin-bottom: 12px;
+      margin-bottom: 8px;
+      padding: 7px 12px;
+      background: var(--bg);
+      border-radius: 6px;
+      border-left: 3px solid var(--border);
     }
 
-    /* ── ATTRACTION ROWS ── */
-    .attraction-list { display: flex; flex-direction: column; gap: 14px; }
-    .attraction-row {
-      display: flex;
-      gap: 16px;
-      align-items: flex-start;
-      padding: 14px 16px;
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      background: var(--light);
-    }
-    .attraction-info { flex: 1; }
-    .attraction-name {
+    /* ── FROM-HOTEL CHIP ── */
+    .chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      font-size: 10px;
       font-weight: 600;
-      font-size: 0.98rem;
-      color: var(--navy);
-      margin-bottom: 4px;
+      letter-spacing: .3px;
+      background: var(--forest);
+      color: #a8d4b8;
+      padding: 3px 9px;
+      border-radius: 99px;
+      margin-bottom: 8px;
     }
-    .attraction-addr {
-      font-size: 0.8rem;
-      color: var(--slate);
-      margin-bottom: 4px;
+    .chip.car  { background: #1a3550; color: #93c5fd; }
+    .chip.hike { background: #2a1d0d; color: #fcd34d; }
+
+    /* ── BADGE ── */
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: .5px;
+      text-transform: uppercase;
+      padding: 2px 9px;
+      border-radius: 99px;
+      gap: 4px;
     }
-    .attraction-desc {
-      font-size: 0.8rem;
-      color: var(--slate);
-      line-height: 1.5;
+    .b-easy   { background: #dcfce7; color: #166534; }
+    .b-mid    { background: #ffedd5; color: #9a3412; }
+    .b-hard   { background: #fee2e2; color: #991b1b; }
+    .b-cable  { background: #ede9fe; color: #5b21b6; }
+    .b-trail  { background: #dbeafe; color: #1e40af; }
+
+    /* ── TRAIL GRID ── */
+    .trail-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
     }
-    .qr-block {
+    .trail-card {
+      background: var(--bg);
+      border-radius: var(--radius);
+      padding: 16px 18px;
+      border: 1px solid var(--border);
+      border-top: 3px solid var(--green);
+      transition: box-shadow .2s, transform .2s;
+    }
+    .trail-card:hover { box-shadow: 0 4px 20px rgba(0,0,0,.09); transform: translateY(-2px); }
+    .trail-card.b-mid-card { border-top-color: #f97316; }
+    .trail-card.b-hard-card { border-top-color: #ef4444; }
+    .trail-card.b-easy-card { border-top-color: #22c55e; }
+    .trail-card.b-cable-card { border-top-color: #8b5cf6; border-top-width: 3px; }
+    .trail-card.span2 { grid-column: 1 / -1; }
+    .trail-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: var(--forest);
+      margin-bottom: 6px;
+      line-height: 1.3;
+    }
+    .trail-stats {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin: 7px 0;
+    }
+    .stat {
+      font-size: 11px;
+      color: var(--muted);
+      display: flex;
+      align-items: center;
+      gap: 3px;
+    }
+    .trail-desc {
+      font-size: 12px;
+      color: var(--muted);
+      line-height: 1.55;
+      margin-top: 7px;
+    }
+    .badges-row { display: flex; gap: 5px; flex-wrap: wrap; margin: 5px 0; }
+
+    /* ── ATTRACTION LIST ── */
+    .attraction-list { display: flex; flex-direction: column; gap: 10px; }
+    .attr-card {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 16px;
+      align-items: start;
+      background: var(--bg);
+      border-radius: var(--radius);
+      padding: 16px 18px;
+      border: 1px solid var(--border);
+    }
+    .attr-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: var(--forest);
+      margin-bottom: 3px;
+    }
+    .attr-addr {
+      font-size: 11px;
+      color: var(--amber);
+      font-weight: 500;
+      margin-bottom: 5px;
+    }
+    .attr-desc {
+      font-size: 12px;
+      color: var(--muted);
+      line-height: 1.55;
+    }
+    .qr-wrap {
       display: flex;
       flex-direction: column;
       align-items: center;
       gap: 4px;
       flex-shrink: 0;
     }
-    .qr-block img {
-      width: 90px; height: 90px;
+    .qr-wrap img {
+      width: 84px; height: 84px;
+      border-radius: 8px;
       border: 1px solid var(--border);
-      border-radius: 6px;
       display: block;
     }
-    .qr-label {
-      font-size: 0.65rem;
-      color: var(--slate);
+    .qr-lbl {
+      font-size: 9px;
+      color: var(--muted);
       text-align: center;
-    }
-
-    /* ── RESTAURANT GRID ── */
-    .restaurant-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 14px;
-    }
-    .restaurant-card {
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      padding: 14px 16px;
-      background: var(--light);
-      display: flex;
-      gap: 12px;
-      align-items: flex-start;
-    }
-    .restaurant-info { flex: 1; }
-    .restaurant-name {
-      font-weight: 600;
-      font-size: 0.95rem;
-      color: var(--navy);
-      margin-bottom: 3px;
-    }
-    .restaurant-type {
-      font-size: 0.75rem;
-      color: var(--gold);
-      font-weight: 600;
-      margin-bottom: 4px;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-    }
-    .restaurant-addr {
-      font-size: 0.78rem;
-      color: var(--slate);
       line-height: 1.4;
     }
-    .restaurant-card .qr-block img { width: 80px; height: 80px; }
 
-    /* ── TIPS BOX ── */
-    .tips-box {
-      background: var(--light-gold);
-      border: 1px solid #e2c97e;
-      border-radius: 8px;
-      padding: 18px 20px;
-      margin-top: 6px;
+    /* ── RESTAURANT SECTION ── */
+    .subsection-title {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin: 20px 0 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .subsection-title::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--border);
+    }
+    .subsection-title:first-child { margin-top: 0; }
+    .rest-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+    .rest-card {
+      background: var(--bg);
+      border-radius: var(--radius);
+      padding: 14px 15px;
+      border: 1px solid var(--border);
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 10px;
+      align-items: start;
+    }
+    .rest-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--forest);
+      margin-bottom: 2px;
+      line-height: 1.2;
+    }
+    .rest-type {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: .5px;
+      text-transform: uppercase;
+      color: var(--amber);
+      margin-bottom: 5px;
+    }
+    .rest-addr {
+      font-size: 11px;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+    .rest-card .qr-wrap img { width: 72px; height: 72px; }
+
+    /* ── TIPS ── */
+    .tips {
+      background: var(--amber-bg);
+      border: 1px solid var(--amber-border);
+      border-radius: var(--radius);
+      padding: 20px 22px;
+      margin-top: 4px;
     }
     .tips-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.1rem;
       font-weight: 600;
-      font-size: 0.9rem;
-      color: var(--navy);
-      margin-bottom: 10px;
-      font-family: 'Playfair Display', serif;
+      color: var(--forest);
+      margin-bottom: 12px;
     }
-    .tips-list {
-      list-style: none;
+    .tips-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 6px 20px;
+      gap: 7px 24px;
     }
-    .tips-list li {
-      font-size: 0.8rem;
-      color: var(--slate);
-      padding-left: 14px;
+    .tip {
+      font-size: 11.5px;
+      color: var(--muted);
+      padding-left: 12px;
       position: relative;
-      line-height: 1.4;
+      line-height: 1.45;
     }
-    .tips-list li::before {
-      content: '✦';
+    .tip::before {
+      content: '';
       position: absolute;
       left: 0;
-      color: var(--gold);
-      font-size: 0.6rem;
-      top: 3px;
+      top: 7px;
+      width: 4px; height: 4px;
+      border-radius: 50%;
+      background: var(--amber);
     }
+    .tip strong { color: var(--text); font-weight: 600; }
 
     /* ── FOOTER ── */
     .footer {
-      background: var(--navy);
-      color: rgba(255,255,255,0.55);
-      text-align: center;
-      font-size: 0.75rem;
-      padding: 14px 20px;
-      letter-spacing: 0.5px;
+      background: var(--forest);
+      padding: 16px 56px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
     }
-
-    /* ── PRINT ── */
-    @media print {
-      body { background: white; padding: 0; }
-      .page { box-shadow: none; margin: 0; max-width: 100%; }
-      .no-print { display: none; }
+    .footer-left {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 13px;
+      color: rgba(255,255,255,.4);
+    }
+    .footer-right {
+      font-size: 10px;
+      color: rgba(255,255,255,.3);
+      text-align: right;
     }
 
     /* ── PRINT BUTTON ── */
     .print-bar {
-      max-width: 794px;
+      max-width: 820px;
       margin: 0 auto 16px;
       text-align: right;
+      padding: 0 4px;
     }
     .print-btn {
-      background: var(--navy);
+      background: var(--forest);
       color: white;
       border: none;
-      padding: 10px 24px;
-      border-radius: 6px;
-      font-size: 0.9rem;
+      padding: 10px 22px;
+      border-radius: 8px;
+      font-size: 12px;
       cursor: pointer;
-      font-family: inherit;
+      font-family: 'Inter', sans-serif;
+      font-weight: 500;
+      letter-spacing: .3px;
     }
-    .print-btn:hover { background: #243d5e; }
+    .print-btn:hover { background: var(--green); }
+
+    /* ── PRINT ── */
+    @media print {
+      body { background: white; }
+      .page { box-shadow: none; margin: 0; max-width: 100%; border-radius: 0; }
+      .no-print { display: none !important; }
+      .trail-card:hover, .attr-card:hover { transform: none; box-shadow: none; }
+    }
+
+    @media (max-width: 600px) {
+      .body { padding: 28px 24px 36px; }
+      .hero { padding: 36px 24px 32px; }
+      .trail-grid, .rest-grid { grid-template-columns: 1fr; }
+      .footer { padding: 14px 24px; flex-direction: column; align-items: flex-start; }
+    }
   </style>
 </head>
 <body>
 
 <div class="print-bar no-print">
-  <button class="print-btn" onclick="window.print()">🖨️ Drukuj / Zapisz jako PDF</button>
+  <button class="print-btn" onclick="window.print()">Drukuj / Zapisz jako PDF</button>
 </div>
 
 <div class="page">
 
-  <!-- HEADER -->
-  <div class="header">
-    <div class="header-top">
-      <div>
-        <div class="hotel-name" id="hotel-name">&#9654; Twój Pensjonat</div>
-        <div class="hotel-tagline">Serdecznie witamy w Karpaczu</div>
-      </div>
-      <div class="header-address">
-        ul. Emilii Plater 16<br>
-        58-540 Karpacz<br>
-        przystanek: <strong style="color:rgba(255,255,255,0.9)">Karpacz</strong>
+  <!-- ═══ HERO ═══ -->
+  <div class="hero">
+    <div class="hero-inner">
+      <div class="hero-eyebrow">Przewodnik dla Gości · Karkonosze</div>
+      <div class="hero-name" id="hotel-name">Twój Pensjonat<br><span>w sercu Karpacza</span></div>
+      <div class="hero-meta">
+        <div class="hero-addr">
+          <strong>ul. Emilii Plater 16</strong><br>
+          58-540 Karpacz<br>
+          przystanek: Karpacz
+        </div>
+        <div class="hero-divider"></div>
+        <div>
+          <div class="hero-tag"><span class="dot"></span>Śnieżka 1603 m n.p.m.</div>
+          <div class="hero-tag" style="margin-top:6px"><span class="dot"></span>Kościół Wang XII w.</div>
+        </div>
       </div>
     </div>
-    <div class="header-divider"></div>
-    <div class="header-subtitle">Przewodnik dla Gości &nbsp;·&nbsp; Odkryj Karkonosze</div>
   </div>
 
-  <div class="content">
+  <div class="body">
 
-    <p class="disclaimer">⚠ Czasy i odległości liczone od ul. Emilii Plater 16. Dane restauracji orientacyjne – zweryfikuj przed drukiem.</p>
+    <p class="disclaimer">Odległości i czasy liczone od ul. Emilii Plater 16. Dane restauracji orientacyjne — zweryfikuj przed drukiem.</p>
 
-    <!-- ════ SZLAKI ════ -->
+    <!-- ═══ 1. SZLAKI ═══ -->
     <div class="section">
-      <div class="section-header">
-        <div class="section-icon">🥾</div>
-        <div class="section-title">Szlaki Górskie</div>
+      <div class="section-head">
+        <div class="section-num">01</div>
+        <div class="section-title-wrap">
+          <div class="section-title">Szlaki Górskie</div>
+          <div class="section-sub">Trasy piesze w Karkonoszach · czasy od startu szlaku</div>
+        </div>
       </div>
+      <div class="section-rule"></div>
 
       <div class="trail-grid">
 
-        <div class="trail-card hard">
-          <div class="from-hotel">🏠 do startu: 3,5 km · 10 min autem / 45 min pieszo</div>
-          <div class="trail-name">Śnieżka – Król Karkonoszy</div>
-          <div class="trail-meta">
-            <span>🕐 2,5–3,5 h w górę</span>
-            <span>📏 6,5 km</span>
-            <span>↑ 860 m</span>
+        <div class="trail-card b-hard-card">
+          <div class="chip">🏠 3,5 km · 10 min autem / 45 min pieszo</div>
+          <div class="trail-name">Śnieżka — Król Karkonoszy</div>
+          <div class="badges-row">
+            <span class="badge b-hard">Trudny</span>
+            <span class="badge b-trail">Szlak czerwony</span>
           </div>
-          <div>
-            <span class="badge badge-hard">Trudny</span>
-            <span class="badge badge-blue" style="margin-left:4px">szlak czerwony</span>
+          <div class="trail-stats">
+            <span class="stat">⏱ 2,5–3,5 h w górę</span>
+            <span class="stat">📏 6,5 km</span>
+            <span class="stat">↑ 860 m</span>
           </div>
-          <div class="trail-desc">Start: parking przy kościele Wang (Bierutowice). Najwyższy szczyt Sudetów (1603 m). Widoki na Czechy i Polskę – przy dobrej pogodzie widać Tatry.</div>
+          <div class="trail-desc">Start: parking przy kościele Wang, Bierutowice. Najwyższy szczyt Sudetów (1603 m). Przy dobrej pogodzie widok na Tatry.</div>
         </div>
 
-        <div class="trail-card medium">
-          <div class="from-hotel">🏠 do startu: 2,5 km · 8 min autem / 30 min pieszo</div>
+        <div class="trail-card b-mid-card">
+          <div class="chip">🏠 2,5 km · 8 min autem / 30 min pieszo</div>
           <div class="trail-name">Śnieżne Kotły</div>
-          <div class="trail-meta">
-            <span>🕐 2–2,5 h</span>
-            <span>📏 ~5 km</span>
-            <span>↑ 550 m</span>
+          <div class="badges-row">
+            <span class="badge b-mid">Umiarkowany</span>
+            <span class="badge b-trail">Szlak niebieski</span>
           </div>
-          <div>
-            <span class="badge badge-medium">Umiarkowany</span>
-            <span class="badge badge-blue" style="margin-left:4px">szlak niebieski</span>
+          <div class="trail-stats">
+            <span class="stat">⏱ 2–2,5 h</span>
+            <span class="stat">📏 ~5 km</span>
+            <span class="stat">↑ 550 m</span>
           </div>
-          <div class="trail-desc">Start: gondola Kopa lub parking przy ul. Olimpijskiej. Dwa wielkie amfiteatry polodowcowe – jeden z najpiękniejszych widoków w Karkonoszach.</div>
+          <div class="trail-desc">Start: gondola Kopa. Dwa amfiteatry polodowcowe — jeden z najpiękniejszych widoków w Karkonoszach.</div>
         </div>
 
-        <div class="trail-card medium">
-          <div class="from-hotel">🏠 do startu: 3 km · 10 min autem / 35 min pieszo</div>
+        <div class="trail-card b-mid-card">
+          <div class="chip">🏠 3 km · 10 min autem / 35 min pieszo</div>
           <div class="trail-name">Schronisko Samotnia</div>
-          <div class="trail-meta">
-            <span>🕐 1,5–2 h w górę</span>
-            <span>📏 4,5 km</span>
-            <span>↑ 500 m</span>
+          <div class="badges-row">
+            <span class="badge b-mid">Umiarkowany</span>
+            <span class="badge b-trail">Szlak żółty</span>
           </div>
-          <div>
-            <span class="badge badge-medium">Umiarkowany</span>
-            <span class="badge badge-blue" style="margin-left:4px">szlak żółty</span>
+          <div class="trail-stats">
+            <span class="stat">⏱ 1,5–2 h w górę</span>
+            <span class="stat">📏 4,5 km</span>
+            <span class="stat">↑ 500 m</span>
           </div>
-          <div class="trail-desc">Start: Karpacz Górny (Bierutowice). Schronisko nad Małym Stawem – jedynym naturalnym jeziorem karkonoskim. Niepowtarzalny klimat, dobry żurek.</div>
+          <div class="trail-desc">Start: Karpacz Górny. Schronisko nad Małym Stawem — jedynym naturalnym jeziorem w Karkonoszach. Kultowe miejsce.</div>
         </div>
 
-        <div class="trail-card easy">
-          <div class="from-hotel">🚗 do startu: 28 km · 35 min autem (Szklarska Poręba)</div>
+        <div class="trail-card b-easy-card">
+          <div class="chip car">🚗 28 km · 35 min autem (Szklarska Poręba)</div>
           <div class="trail-name">Wodospad Kamieńczyka</div>
-          <div class="trail-meta">
-            <span>🕐 45 min (pętla)</span>
-            <span>📏 ~2 km</span>
+          <div class="badges-row">
+            <span class="badge b-easy">Łatwy</span>
           </div>
-          <div>
-            <span class="badge badge-easy">Łatwy</span>
+          <div class="trail-stats">
+            <span class="stat">⏱ 45 min (pętla)</span>
+            <span class="stat">📏 ~2 km</span>
           </div>
-          <div class="trail-desc">Najwyższy wodospad w polskich Sudetach (27 m). Doskonały na rodzinny wypad autem. Wygodna ścieżka leśna, bilety przy wejściu. Parking przy ul. Myśliwskiej.</div>
+          <div class="trail-desc">Najwyższy wodospad w polskich Sudetach (27 m). Rodzinna ścieżka leśna. Parking: ul. Myśliwska, Szklarska Poręba.</div>
         </div>
 
-        <div class="trail-card full">
-          <div class="from-hotel">🏠 do gondoli: 2,5 km · 8 min autem / 30 min pieszo · parking: ul. Olimpijska 4</div>
-          <div class="trail-name">Kolej Linowa na Kopę – opcja bez wysiłku</div>
-          <div class="trail-meta">
-            <span>🕐 7 min wjazd gondolą</span>
-            <span>⛰ 1375 m n.p.m.</span>
-            <span>z Kopy na Śnieżkę: ~1 h spaceru</span>
+        <div class="trail-card b-cable-card span2">
+          <div class="chip" style="background:#2e1a5a;color:#c4b5fd;">🚡 2,5 km · 8 min autem / 30 min pieszo · parking: ul. Olimpijska 4</div>
+          <div class="trail-name">Kolej Linowa na Kopę — opcja bez wysiłku</div>
+          <div class="badges-row">
+            <span class="badge b-cable">Gondola</span>
+            <span class="stat" style="margin-left:4px">⏱ 7 min wjazd</span>
+            <span class="stat" style="margin-left:4px">⛰ 1375 m n.p.m.</span>
+            <span class="stat" style="margin-left:4px">z Kopy na Śnieżkę: ~1 h</span>
           </div>
-          <div>
-            <span class="badge badge-gondola">Gondola</span>
-          </div>
-          <div class="trail-desc">Wygodny wjazd bez wysiłku. Z górnej stacji piękne trasy widokowe grzbietem lub spacer na Śnieżkę. Polecane dla dzieci, seniorów i tych, którzy chcą cieszyć się widokami bez forsownego podejścia.</div>
+          <div class="trail-desc">Wygodny wjazd bez wysiłku. Z górnej stacji spacer na Śnieżkę lub trasy widokowe grzbietem. Polecane dla dzieci i seniorów.</div>
         </div>
 
       </div>
     </div>
 
-    <!-- ════ ATRAKCJE ════ -->
+    <!-- ═══ 2. ATRAKCJE ═══ -->
     <div class="section">
-      <div class="section-header">
-        <div class="section-icon">🏛</div>
-        <div class="section-title">Atrakcje i Zabytki</div>
+      <div class="section-head">
+        <div class="section-num">02</div>
+        <div class="section-title-wrap">
+          <div class="section-title">Atrakcje i Zabytki</div>
+          <div class="section-sub">Posortowane wg odległości od pensjonatu</div>
+        </div>
       </div>
+      <div class="section-rule"></div>
 
       <div class="attraction-list">
 
-        <div class="attraction-row">
-          <div class="attraction-info">
-            <div class="from-hotel">🏠 ~1 km · 12 min pieszo</div>
-            <div class="attraction-name">Muzeum Zabawek i Zabawy</div>
-            <div class="attraction-addr">📍 ul. Kolejowa 14, Karpacz</div>
-            <div class="attraction-desc">Unikalne w Polsce muzeum z kolekcją zabawek z różnych epok i zakątków świata – lalki, kolejki, misia, samochody. Świetna atrakcja dla rodzin i sentymentalna podróż dla dorosłych.</div>
+        <div class="attr-card">
+          <div>
+            <div class="chip">🏠 ~1 km · 12 min pieszo</div>
+            <div class="attr-name">Muzeum Zabawek i Zabawy</div>
+            <div class="attr-addr">📍 ul. Kolejowa 14, Karpacz</div>
+            <div class="attr-desc">Unikalne w Polsce muzeum z kolekcją zabawek z różnych epok i zakątków świata. Świetna atrakcja dla rodzin i sentymentalna podróż dla dorosłych.</div>
           </div>
-          <div class="qr-block">
-            <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https%3A%2F%2Fmaps.google.com%2F%3Fq%3DMuzeum%2BZabawek%2BKarpacz" alt="QR Muzeum">
-            <div class="qr-label">Google Maps<br>Muzeum Zabawek</div>
-          </div>
-        </div>
-
-        <div class="attraction-row">
-          <div class="attraction-info">
-            <div class="from-hotel">🏠 ~1,5 km · 18 min pieszo</div>
-            <div class="attraction-name">Centrum Karpacza – deptak</div>
-            <div class="attraction-addr">📍 ul. Konstytucji 3 Maja, Karpacz</div>
-            <div class="attraction-desc">Główna promenada z restauracjami, kawiarniami, sklepami pamiątkowymi i lodziarniami. Idealne miejsce na wieczorny spacer lub zakupy. Tu skupia się życie Karpacza.</div>
-          </div>
-          <div class="qr-block">
-            <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https%3A%2F%2Fmaps.google.com%2F%3Fq%3DKarpacz%2Bcentrum%2Bdeptak" alt="QR Deptak">
-            <div class="qr-label">Google Maps<br>Centrum</div>
+          <div class="qr-wrap">
+            <img src="https://api.qrserver.com/v1/create-qr-code/?size=168x168&data=https%3A%2F%2Fmaps.google.com%2F%3Fq%3DMuzeum%2BZabawek%2BKarpacz" alt="QR">
+            <div class="qr-lbl">Google Maps<br>Muzeum Zabawek</div>
           </div>
         </div>
 
-        <div class="attraction-row">
-          <div class="attraction-info">
-            <div class="from-hotel">🚗 ~2,5 km · 8 min autem / 30 min pieszo (pod górę)</div>
-            <div class="attraction-name">Kolej Linowa Kopa</div>
-            <div class="attraction-addr">📍 ul. Olimpijska 4, Karpacz</div>
-            <div class="attraction-desc">Komfortowa gondola na wysokość 1375 m n.p.m. Zimą: zjazdy narciarskie i snowboard. Latem: trasy widokowe, mountain bike, spacery grzbietem. Duży parking przy stacji.</div>
+        <div class="attr-card">
+          <div>
+            <div class="chip">🏠 ~1,5 km · 18 min pieszo</div>
+            <div class="attr-name">Centrum Karpacza — deptak</div>
+            <div class="attr-addr">📍 ul. Konstytucji 3 Maja, Karpacz</div>
+            <div class="attr-desc">Główna promenada z restauracjami, kawiarniami i sklepami pamiątkowymi. Tu skupia się życie Karpacza — idealne na wieczorny spacer.</div>
           </div>
-          <div class="qr-block">
-            <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https%3A%2F%2Fmaps.google.com%2F%3Fq%3DKolej%2BLinowa%2BKopa%2BKarpacz" alt="QR Kopa">
-            <div class="qr-label">Google Maps<br>Gondola Kopa</div>
-          </div>
-        </div>
-
-        <div class="attraction-row">
-          <div class="attraction-info">
-            <div class="from-hotel">🚗 ~3,5 km · 10 min autem / 45 min pieszo (pod górę)</div>
-            <div class="attraction-name">Kościół Wang</div>
-            <div class="attraction-addr">📍 ul. Na Śnieżkę 8, Karpacz-Bierutowice</div>
-            <div class="attraction-desc">Perła Karpacza – norweski kościół klepkowy z XII w., sprowadzony przez króla Prus w 1844 r. Jedna z najpiękniejszych drewnianych świątyń w Europie. Stąd też startują szlaki na Śnieżkę.</div>
-          </div>
-          <div class="qr-block">
-            <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https%3A%2F%2Fmaps.google.com%2F%3Fq%3DKo%C5%9Bci%C3%B3%C5%82%2BWang%2BKarpacz" alt="QR Wang">
-            <div class="qr-label">Google Maps<br>Kościół Wang</div>
+          <div class="qr-wrap">
+            <img src="https://api.qrserver.com/v1/create-qr-code/?size=168x168&data=https%3A%2F%2Fmaps.google.com%2F%3Fq%3DKarpacz%2Bcentrum%2Bdeptak" alt="QR">
+            <div class="qr-lbl">Google Maps<br>Centrum</div>
           </div>
         </div>
 
-        <div class="attraction-row">
-          <div class="attraction-info">
-            <div class="from-hotel">🚗 ~30 km · 35 min autem (Szklarska Poręba)</div>
-            <div class="attraction-name">Wodospad Kamieńczyka</div>
-            <div class="attraction-addr">📍 ul. Myśliwska, Szklarska Poręba</div>
-            <div class="attraction-desc">Najwyższy wodospad w polskich Sudetach (27 m). Łatwa, rodzinna ścieżka leśna – ok. 45 min spaceru pętlą. Warto połączyć z obiadem w Szklarskiej Porębie.</div>
+        <div class="attr-card">
+          <div>
+            <div class="chip car">🚗 ~2,5 km · 8 min autem</div>
+            <div class="attr-name">Kolej Linowa Kopa</div>
+            <div class="attr-addr">📍 ul. Olimpijska 4, Karpacz</div>
+            <div class="attr-desc">Gondola na 1375 m n.p.m. Zimą zjazdy narciarskie, latem trasy widokowe i mountain bike. Duży parking przy stacji.</div>
           </div>
-          <div class="qr-block">
-            <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https%3A%2F%2Fmaps.google.com%2F%3Fq%3DWodospad%2BKamie%C5%84czyka%2BSzklarska%2BPor%C4%99ba" alt="QR Wodospad">
-            <div class="qr-label">Google Maps<br>Wodospad</div>
+          <div class="qr-wrap">
+            <img src="https://api.qrserver.com/v1/create-qr-code/?size=168x168&data=https%3A%2F%2Fmaps.google.com%2F%3Fq%3DKolej%2BLinowa%2BKopa%2BKarpacz" alt="QR">
+            <div class="qr-lbl">Google Maps<br>Gondola Kopa</div>
+          </div>
+        </div>
+
+        <div class="attr-card">
+          <div>
+            <div class="chip car">🚗 ~3,5 km · 10 min autem</div>
+            <div class="attr-name">Kościół Wang</div>
+            <div class="attr-addr">📍 ul. Na Śnieżkę 8, Karpacz-Bierutowice</div>
+            <div class="attr-desc">Norweski kościół klepkowy z XII w., sprowadzony przez króla Prus w 1844 r. Jedna z najpiękniejszych drewnianych świątyń w Europie. Stąd startują szlaki na Śnieżkę.</div>
+          </div>
+          <div class="qr-wrap">
+            <img src="https://api.qrserver.com/v1/create-qr-code/?size=168x168&data=https%3A%2F%2Fmaps.google.com%2F%3Fq%3DKo%C5%9Bci%C3%B3%C5%82%2BWang%2BKarpacz" alt="QR">
+            <div class="qr-lbl">Google Maps<br>Kościół Wang</div>
+          </div>
+        </div>
+
+        <div class="attr-card">
+          <div>
+            <div class="chip car">🚗 ~28 km · 35 min autem</div>
+            <div class="attr-name">Wodospad Kamieńczyka</div>
+            <div class="attr-addr">📍 ul. Myśliwska, Szklarska Poręba</div>
+            <div class="attr-desc">Najwyższy wodospad w polskich Sudetach (27 m). Łatwa ścieżka leśna ok. 45 min. Warto połączyć z obiadem w Szklarskiej Porębie.</div>
+          </div>
+          <div class="qr-wrap">
+            <img src="https://api.qrserver.com/v1/create-qr-code/?size=168x168&data=https%3A%2F%2Fmaps.google.com%2F%3Fq%3DWodospad%2BKamie%C5%84czyka%2BSzklarska%2BPor%C4%99ba" alt="QR">
+            <div class="qr-lbl">Google Maps<br>Wodospad</div>
           </div>
         </div>
 
       </div>
     </div>
 
-    <!-- ════ RESTAURACJE ════ -->
+    <!-- ═══ 3. RESTAURACJE ═══ -->
     <div class="section">
-      <div class="section-header">
-        <div class="section-icon">🍽</div>
-        <div class="section-title">Gdzie Zjeść</div>
+      <div class="section-head">
+        <div class="section-num">03</div>
+        <div class="section-title-wrap">
+          <div class="section-title">Gdzie Zjeść</div>
+          <div class="section-sub">Na piechotę i warte podjazdu</div>
+        </div>
+      </div>
+      <div class="section-rule"></div>
+
+      <div class="subsection-title">Na piechotę — max 20 min od pensjonatu</div>
+      <div class="rest-grid">
+
+        <div class="rest-card">
+          <div>
+            <div class="chip" style="margin-bottom:7px">🏠 ~1 km · 12 min pieszo</div>
+            <div class="rest-name">Restauracja Mały Szczyt</div>
+            <div class="rest-type">Kuchnia polska · regionalna</div>
+            <div class="rest-addr">📍 ul. Konstytucji 3 Maja, Karpacz<br>Tradycyjne dania, dziczyzna, pstrąg.</div>
+          </div>
+          <div class="qr-wrap">
+            <img src="https://api.qrserver.com/v1/create-qr-code/?size=144x144&data=https%3A%2F%2Fmaps.google.com%2F%3Fq%3DMa%C5%82y%2BSzczyt%2BKarpacz" alt="QR">
+            <div class="qr-lbl">Google Maps</div>
+          </div>
+        </div>
+
+        <div class="rest-card">
+          <div>
+            <div class="chip" style="margin-bottom:7px">🏠 ~1,2 km · 15 min pieszo</div>
+            <div class="rest-name">Gospoda Karkonoska</div>
+            <div class="rest-type">Kuchnia góralska · śląska</div>
+            <div class="rest-addr">📍 ul. Konstytucji 3 Maja, Karpacz<br>Bigos, żurek, pierogi, grillowane mięsa.</div>
+          </div>
+          <div class="qr-wrap">
+            <img src="https://api.qrserver.com/v1/create-qr-code/?size=144x144&data=https%3A%2F%2Fmaps.google.com%2F%3Fq%3DGospoda%2BKarkonoska%2BKarpacz" alt="QR">
+            <div class="qr-lbl">Google Maps</div>
+          </div>
+        </div>
+
+        <div class="rest-card">
+          <div>
+            <div class="chip" style="margin-bottom:7px">🏠 ~1,3 km · 16 min pieszo</div>
+            <div class="rest-name">Kawiarnia — deptak</div>
+            <div class="rest-type">Kawiarnia · lodziarnia</div>
+            <div class="rest-addr">📍 ul. Konstytucji 3 Maja, Karpacz<br>Kawa, ciasta, lody, gofry.</div>
+          </div>
+          <div class="qr-wrap">
+            <img src="https://api.qrserver.com/v1/create-qr-code/?size=144x144&data=https%3A%2F%2Fmaps.google.com%2F%3Fq%3Dkawiarnia%2BKarpacz%2Bdeptak" alt="QR">
+            <div class="qr-lbl">Google Maps</div>
+          </div>
+        </div>
+
+        <div class="rest-card">
+          <div>
+            <div class="chip" style="margin-bottom:7px">🏠 ~1,5 km · 18 min pieszo</div>
+            <div class="rest-name">Pizzeria Karpacz</div>
+            <div class="rest-type">Pizza · pasta</div>
+            <div class="rest-addr">📍 centrum Karpacza<br>Pizza z pieca, makarony. Dobra opcja dla rodzin.</div>
+          </div>
+          <div class="qr-wrap">
+            <img src="https://api.qrserver.com/v1/create-qr-code/?size=144x144&data=https%3A%2F%2Fmaps.google.com%2F%3Fq%3Dpizzeria%2BKarpacz" alt="QR">
+            <div class="qr-lbl">Google Maps</div>
+          </div>
+        </div>
+
       </div>
 
-      <div class="subsection-label">🚶 Na piechotę — max 20 minut od pensjonatu</div>
-      <div class="restaurant-grid">
+      <div class="subsection-title">Warto podjechać — wyróżnione opinie</div>
+      <div class="rest-grid">
 
-        <div class="restaurant-card">
-          <div class="restaurant-info">
-            <div class="from-hotel" style="margin-bottom:5px">🏠 ~1 km · 12 min pieszo</div>
-            <div class="restaurant-name">Restauracja Mały Szczyt</div>
-            <div class="restaurant-type">Kuchnia polska · regionalna</div>
-            <div class="restaurant-addr">📍 ul. Konstytucji 3 Maja, Karpacz<br>Tradycyjne dania, dziczyzna, pstrąg. Kameralna atmosfera.</div>
+        <div class="rest-card">
+          <div>
+            <div class="chip car" style="margin-bottom:7px">🚗 ~3,5 km · 10 min autem</div>
+            <div class="rest-name">Restauracje przy Wang</div>
+            <div class="rest-type">Kuchnia polska · widoki</div>
+            <div class="rest-addr">📍 okolice ul. Na Śnieżkę, Bierutowice<br>Klimatyczne lokale tuż przy kościele Wang i starcie szlaków.</div>
           </div>
-          <div class="qr-block">
-            <img src="https://api.qrserver.com/v1/create-qr-code/?size=120x120&data=https%3A%2F%2Fmaps.google.com%2F%3Fq%3DMa%C5%82y%2BSzczyt%2BKarpacz" alt="QR">
-            <div class="qr-label">Google Maps</div>
+          <div class="qr-wrap">
+            <img src="https://api.qrserver.com/v1/create-qr-code/?size=144x144&data=https%3A%2F%2Fmaps.google.com%2F%3Fq%3Drestauracja%2BBierutowice%2BKarpacz" alt="QR">
+            <div class="qr-lbl">Google Maps</div>
           </div>
         </div>
 
-        <div class="restaurant-card">
-          <div class="restaurant-info">
-            <div class="from-hotel" style="margin-bottom:5px">🏠 ~1,2 km · 15 min pieszo</div>
-            <div class="restaurant-name">Gospoda Karkonoska</div>
-            <div class="restaurant-type">Kuchnia góralska · śląska</div>
-            <div class="restaurant-addr">📍 ul. Konstytucji 3 Maja, Karpacz<br>Bigos, żurek, pierogi i grillowane mięsa w góralskim klimacie.</div>
+        <div class="rest-card">
+          <div>
+            <div class="chip hike" style="margin-bottom:7px">🥾 szlak żółty · ~1,5–2 h pieszo</div>
+            <div class="rest-name">Schronisko Samotnia</div>
+            <div class="rest-type">Schronisko górskie · kultowe</div>
+            <div class="rest-addr">📍 Mały Staw, Karkonosze<br>Żurek, bigos, grzane wino. Obowiązkowo.</div>
           </div>
-          <div class="qr-block">
-            <img src="https://api.qrserver.com/v1/create-qr-code/?size=120x120&data=https%3A%2F%2Fmaps.google.com%2F%3Fq%3DGospoda%2BKarkonoska%2BKarpacz" alt="QR">
-            <div class="qr-label">Google Maps</div>
-          </div>
-        </div>
-
-        <div class="restaurant-card">
-          <div class="restaurant-info">
-            <div class="from-hotel" style="margin-bottom:5px">🏠 ~1,3 km · 16 min pieszo</div>
-            <div class="restaurant-name">Kawiarnia na deptaku</div>
-            <div class="restaurant-type">Kawiarnia · lodziarnia</div>
-            <div class="restaurant-addr">📍 ul. Konstytucji 3 Maja, Karpacz<br>Kawa, ciasta, lody, gofry. Idealna na poranną kawę lub popołudniowy deser.</div>
-          </div>
-          <div class="qr-block">
-            <img src="https://api.qrserver.com/v1/create-qr-code/?size=120x120&data=https%3A%2F%2Fmaps.google.com%2F%3Fq%3Dkawiarnia%2BKarpacz%2Bdeptak" alt="QR">
-            <div class="qr-label">Google Maps</div>
+          <div class="qr-wrap">
+            <img src="https://api.qrserver.com/v1/create-qr-code/?size=144x144&data=https%3A%2F%2Fmaps.google.com%2F%3Fq%3DSchronisko%2BSamotnia%2BKarkonosze" alt="QR">
+            <div class="qr-lbl">Google Maps</div>
           </div>
         </div>
 
-        <div class="restaurant-card">
-          <div class="restaurant-info">
-            <div class="from-hotel" style="margin-bottom:5px">🏠 ~1,5 km · 18 min pieszo</div>
-            <div class="restaurant-name">Pizzeria Karpacz</div>
-            <div class="restaurant-type">Pizza · pasta · fast casual</div>
-            <div class="restaurant-addr">📍 okolice centrum Karpacza<br>Pizza z pieca, makarony, sałaty. Dobra opcja dla rodzin z dziećmi.</div>
+        <div class="rest-card">
+          <div>
+            <div class="chip car" style="margin-bottom:7px">🚗 ~28 km · 35 min autem</div>
+            <div class="rest-name">Szklarska Poręba</div>
+            <div class="rest-type">Różnorodna oferta</div>
+            <div class="rest-addr">📍 ul. Jedności Narodowej, Szklarska Poręba<br>Klimatyczne lokale — idealne na całodniowy wypad.</div>
           </div>
-          <div class="qr-block">
-            <img src="https://api.qrserver.com/v1/create-qr-code/?size=120x120&data=https%3A%2F%2Fmaps.google.com%2F%3Fq%3Dpizzeria%2BKarpacz" alt="QR">
-            <div class="qr-label">Google Maps</div>
-          </div>
-        </div>
-
-      </div>
-
-      <div class="subsection-label" style="margin-top:22px">🚗 Warto podjechać — wyróżniające się miejsca w okolicy</div>
-      <div class="restaurant-grid">
-
-        <div class="restaurant-card">
-          <div class="restaurant-info">
-            <div class="from-hotel" style="margin-bottom:5px">🚗 ~3,5 km · 10 min autem</div>
-            <div class="restaurant-name">Restauracja przy Wang</div>
-            <div class="restaurant-type">Kuchnia polska · widoki</div>
-            <div class="restaurant-addr">📍 okolice ul. Na Śnieżkę, Bierutowice<br>Klimatyczne lokale w górnej części Karpacza, tuż przy kościele Wang i starcie szlaków.</div>
-          </div>
-          <div class="qr-block">
-            <img src="https://api.qrserver.com/v1/create-qr-code/?size=120x120&data=https%3A%2F%2Fmaps.google.com%2F%3Fq%3Drestauracja%2BBierutowice%2BKarpacz" alt="QR">
-            <div class="qr-label">Google Maps</div>
+          <div class="qr-wrap">
+            <img src="https://api.qrserver.com/v1/create-qr-code/?size=144x144&data=https%3A%2F%2Fmaps.google.com%2F%3Fq%3Drestauracja%2BSzklarska%2BPor%C4%99ba" alt="QR">
+            <div class="qr-lbl">Google Maps</div>
           </div>
         </div>
 
-        <div class="restaurant-card">
-          <div class="restaurant-info">
-            <div class="from-hotel" style="margin-bottom:5px">🥾 szlak żółty ~1,5–2 h pieszo</div>
-            <div class="restaurant-name">Schronisko Samotnia</div>
-            <div class="restaurant-type">Schronisko górskie · kultowe</div>
-            <div class="restaurant-addr">📍 Mały Staw, Karkonosze<br>Żurek, bigos, grzane wino w historycznym schronisku nad jeziorem. Obowiązkowy punkt każdej wyprawy.</div>
+        <div class="rest-card">
+          <div>
+            <div class="chip car" style="margin-bottom:7px">🚗 ~25 km · 30 min autem</div>
+            <div class="rest-name">Stare Miasto Jelenia Góra</div>
+            <div class="rest-type">Restauracje · rynek · kultura</div>
+            <div class="rest-addr">📍 Plac Ratuszowy, Jelenia Góra<br>Rynek z kawiarniami różnych kuchni. Na wieczór.</div>
           </div>
-          <div class="qr-block">
-            <img src="https://api.qrserver.com/v1/create-qr-code/?size=120x120&data=https%3A%2F%2Fmaps.google.com%2F%3Fq%3DSchronisko%2BSamotnia%2BKarkonosze" alt="QR">
-            <div class="qr-label">Google Maps</div>
-          </div>
-        </div>
-
-        <div class="restaurant-card">
-          <div class="restaurant-info">
-            <div class="from-hotel" style="margin-bottom:5px">🚗 ~28 km · 35 min autem</div>
-            <div class="restaurant-name">Restauracje Szklarskiej Poręby</div>
-            <div class="restaurant-type">Różnorodna oferta</div>
-            <div class="restaurant-addr">📍 ul. Jedności Narodowej, Szklarska Poręba<br>Klimatyczne lokale w sąsiedniej miejscowości – idealne na całodniowy wypad.</div>
-          </div>
-          <div class="qr-block">
-            <img src="https://api.qrserver.com/v1/create-qr-code/?size=120x120&data=https%3A%2F%2Fmaps.google.com%2F%3Fq%3Drestauracja%2BSzklarska%2BPor%C4%99ba" alt="QR">
-            <div class="qr-label">Google Maps</div>
-          </div>
-        </div>
-
-        <div class="restaurant-card">
-          <div class="restaurant-info">
-            <div class="from-hotel" style="margin-bottom:5px">🚗 ~25 km · 30 min autem</div>
-            <div class="restaurant-name">Stare Miasto Jelenia Góra</div>
-            <div class="restaurant-type">Restauracje · rynek · kultura</div>
-            <div class="restaurant-addr">📍 Plac Ratuszowy, Jelenia Góra<br>Rynek z kawiarniami i restauracjami różnych kuchni. Dobra opcja na wieczorny wyjazd.</div>
-          </div>
-          <div class="qr-block">
-            <img src="https://api.qrserver.com/v1/create-qr-code/?size=120x120&data=https%3A%2F%2Fmaps.google.com%2F%3Fq%3DRynek%2BJelenia%2BG%C3%B3ra" alt="QR">
-            <div class="qr-label">Google Maps</div>
+          <div class="qr-wrap">
+            <img src="https://api.qrserver.com/v1/create-qr-code/?size=144x144&data=https%3A%2F%2Fmaps.google.com%2F%3Fq%3DRynek%2BJelenia%2BG%C3%B3ra" alt="QR">
+            <div class="qr-lbl">Google Maps</div>
           </div>
         </div>
 
       </div>
     </div>
 
-    <!-- ════ TIPS ════ -->
-    <div class="tips-box">
+    <!-- ═══ TIPS ═══ -->
+    <div class="tips">
       <div class="tips-title">Praktyczne wskazówki</div>
-      <ul class="tips-list">
-        <li>Bilety KPN kupuj online – unikasz kolejki na szlaku</li>
-        <li>Na Śnieżce bywa o 10–15°C chłodniej – weź kurtkę</li>
-        <li>Kościół Wang leży w górnym Karpaczu (Bierutowice) – 10 min autem</li>
-        <li>Parking gondola Kopa: ul. Olimpijska 4 (płatny, duży)</li>
-        <li>Autobus Karpacz ↔ Jelenia Góra kursuje regularnie</li>
-        <li>Zimą: stoki narciarskie Kopa i Biały Jar w pobliżu</li>
-        <li>Apteka w centrum: ul. Konstytucji 3 Maja, Karpacz</li>
-        <li>Bilet KPN obowiązuje na wszystkich szlakach w parku</li>
-      </ul>
+      <div class="tips-grid">
+        <div class="tip"><strong>Bilet KPN</strong> — kup online, unikasz kolejki na szlaku</div>
+        <div class="tip"><strong>Odzież</strong> — na Śnieżce o 10–15°C chłodniej niż w dolinie</div>
+        <div class="tip"><strong>Górny Karpacz</strong> — Wang i szlaki leżą 10 min autem od pensjonatu</div>
+        <div class="tip"><strong>Gondola Kopa</strong> — parking ul. Olimpijska 4 (płatny, duży)</div>
+        <div class="tip"><strong>Autobus</strong> — linia Karpacz ↔ Jelenia Góra, kursuje regularnie</div>
+        <div class="tip"><strong>Zima</strong> — stoki narciarskie Kopa i Biały Jar w pobliżu</div>
+        <div class="tip"><strong>Apteka</strong> — ul. Konstytucji 3 Maja, centrum Karpacza</div>
+        <div class="tip"><strong>Czas na Śnieżkę</strong> — licz z rezerwą, zależy od kondycji</div>
+      </div>
     </div>
 
   </div>
 
   <div class="footer">
-    ul. Emilii Plater 16 &nbsp;·&nbsp; 58-540 Karpacz &nbsp;·&nbsp; przystanek: Karpacz
-    &nbsp;·&nbsp; Życzymy udanego pobytu w Karkonoszach!
+    <div class="footer-left">ul. Emilii Plater 16 &nbsp;·&nbsp; 58-540 Karpacz &nbsp;·&nbsp; przystanek: Karpacz</div>
+    <div class="footer-right">Życzymy udanego pobytu<br>w Karkonoszach</div>
   </div>
 
 </div>
 
 <script>
-  // Zmień nazwę pensjonatu – wpisz ją tutaj:
-  // document.getElementById('hotel-name').textContent = 'Pensjonat Pod Śnieżką';
+  // Ustaw nazwę pensjonatu:
+  // document.getElementById('hotel-name').innerHTML = 'Pensjonat Pod Śnieżką<br><span>w sercu Karpacza</span>';
 </script>
 
 </body>
