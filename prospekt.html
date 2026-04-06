@@ -429,8 +429,9 @@
     .print-bar {
       max-width: 820px;
       margin: 0 auto 16px;
-      text-align: right;
       padding: 0 4px;
+      display: flex;
+      align-items: center;
     }
     .print-btn {
       background: var(--forest);
@@ -445,6 +446,22 @@
       letter-spacing: .3px;
     }
     .print-btn:hover { background: var(--green); }
+    .pdf-btn {
+      background: transparent;
+      color: var(--forest);
+      border: 1.5px solid var(--forest);
+      padding: 10px 22px;
+      border-radius: 8px;
+      font-size: 12px;
+      cursor: pointer;
+      font-family: 'Inter', sans-serif;
+      font-weight: 500;
+      letter-spacing: .3px;
+      text-decoration: none;
+      display: inline-block;
+      margin-right: 8px;
+    }
+    .pdf-btn:hover { background: var(--forest); color: white; }
 
     /* ── PRINT ── */
     @media print {
@@ -465,6 +482,8 @@
 <body>
 
 <div class="print-bar no-print">
+  <span style="font-family:'Inter',sans-serif;font-size:11px;color:#999;margin-right:auto;padding-left:4px;">v1.1 · 2026-04-06</span>
+  <a class="pdf-btn" href="prospekt_karpacz.pdf" target="_blank">Pobierz PDF</a>
   <button class="print-btn" onclick="window.print()">Drukuj / Zapisz jako PDF</button>
 </div>
 
