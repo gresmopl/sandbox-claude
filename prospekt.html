@@ -173,6 +173,43 @@
     }
     .trail-card.full { grid-column: 1 / -1; border-left-color: #805ad5; }
     .badge-gondola { background: #e9d8fd; color: #553c9a; }
+    .badge-walk    { background: #c6f6d5; color: #276749; }
+    .badge-car     { background: #ebf8ff; color: #2c5282; }
+
+    /* ── FROM-HOTEL CHIP ── */
+    .from-hotel {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 0.72rem;
+      font-weight: 700;
+      background: var(--navy);
+      color: #fff;
+      padding: 2px 9px;
+      border-radius: 10px;
+      margin-bottom: 6px;
+      letter-spacing: 0.3px;
+    }
+
+    /* ── SUBSECTION LABEL ── */
+    .subsection-label {
+      font-size: 0.78rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: var(--gold);
+      margin: 18px 0 10px;
+      padding-left: 2px;
+    }
+    .subsection-label:first-child { margin-top: 0; }
+
+    /* ── DISCLAIMER ── */
+    .disclaimer {
+      font-size: 0.72rem;
+      color: #a0aec0;
+      font-style: italic;
+      margin-bottom: 12px;
+    }
 
     /* ── ATTRACTION ROWS ── */
     .attraction-list { display: flex; flex-direction: column; gap: 14px; }
