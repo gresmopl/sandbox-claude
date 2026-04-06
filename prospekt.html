@@ -464,11 +464,74 @@
     .pdf-btn:hover { background: var(--forest); color: white; }
 
     /* ── PRINT ── */
+    @page { margin: 8mm 9mm; size: A4; }
+
     @media print {
-      body { background: white; }
+      * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+      body { background: white; font-size: 10px; line-height: 1.4; }
       .page { box-shadow: none; margin: 0; max-width: 100%; border-radius: 0; }
       .no-print { display: none !important; }
       .trail-card:hover, .attr-card:hover { transform: none; box-shadow: none; }
+
+      /* Hero kompaktowy */
+      .hero { padding: 18px 28px 16px; }
+      .hero-eyebrow { font-size: 8px; margin-bottom: 7px; letter-spacing: 2px; }
+      .hero-name { font-size: 1.7rem; }
+      .hero-meta { margin-top: 10px; gap: 14px; }
+      .hero-addr { font-size: 10px; }
+      .hero-tag { font-size: 9px; padding: 3px 9px; }
+      .hero::after { height: 36px; }
+
+      /* Body i sekcje */
+      .body { padding: 18px 28px 14px; }
+      .section { margin-bottom: 18px; }
+      .section-head { margin-bottom: 10px; gap: 8px; }
+      .section-num { font-size: 1.8rem; }
+      .section-title { font-size: 1.1rem; }
+      .section-sub { font-size: 9px; }
+      .section-rule { margin-bottom: 10px; }
+      .disclaimer { font-size: 9px; padding: 5px 9px; margin-bottom: 10px; }
+
+      /* Szlaki — 3 kolumny */
+      .trail-grid { grid-template-columns: 1fr 1fr 1fr; gap: 7px; }
+      .trail-card { padding: 9px 10px; }
+      .trail-card.span2 { grid-column: 1 / -1; }
+      .chip { font-size: 8px; padding: 2px 7px; margin-bottom: 5px; }
+      .trail-name { font-size: 0.85rem; margin-bottom: 3px; }
+      .trail-stats { gap: 6px; margin: 4px 0; }
+      .stat { font-size: 9px; }
+      .trail-desc { font-size: 9px; margin-top: 4px; line-height: 1.35; }
+      .badges-row { gap: 3px; margin: 3px 0; }
+      .badge { font-size: 8px; padding: 1px 6px; }
+
+      /* Atrakcje — 2 kolumny */
+      .attraction-list { display: grid; grid-template-columns: 1fr 1fr; gap: 7px; }
+      .attr-card { padding: 9px 11px; gap: 8px; border-radius: 8px; }
+      .attr-name { font-size: 0.9rem; margin-bottom: 2px; }
+      .attr-addr { font-size: 9px; margin-bottom: 3px; }
+      .attr-desc { font-size: 9px; line-height: 1.35; }
+      .qr-wrap img { width: 52px; height: 52px; }
+      .qr-lbl { font-size: 7.5px; }
+
+      /* Restauracje */
+      .subsection-title { font-size: 8px; margin: 10px 0 7px; }
+      .rest-grid { grid-template-columns: 1fr 1fr; gap: 7px; }
+      .rest-card { padding: 8px 10px; border-radius: 8px; }
+      .rest-name { font-size: 0.85rem; }
+      .rest-type { font-size: 8.5px; margin-bottom: 3px; }
+      .rest-addr { font-size: 9px; line-height: 1.35; }
+      .rest-card .qr-wrap img { width: 48px; height: 48px; }
+
+      /* Tips */
+      .tips { padding: 12px 16px; margin-top: 6px; border-radius: 8px; }
+      .tips-title { font-size: 0.9rem; margin-bottom: 7px; }
+      .tips-grid { grid-template-columns: 1fr 1fr 1fr; gap: 4px 16px; }
+      .tip { font-size: 9px; padding-left: 9px; line-height: 1.35; }
+
+      /* Footer */
+      .footer { padding: 10px 28px; }
+      .footer-left { font-size: 10px; }
+      .footer-right { font-size: 8.5px; }
     }
 
     @media (max-width: 600px) {
@@ -482,7 +545,7 @@
 <body>
 
 <div class="print-bar no-print">
-  <span style="font-family:'Inter',sans-serif;font-size:11px;color:#999;margin-right:auto;padding-left:4px;">v1.1 · 2026-04-06</span>
+  <span style="font-family:'Inter',sans-serif;font-size:11px;color:#999;margin-right:auto;padding-left:4px;">v1.2 · 2026-04-06</span>
   <a class="pdf-btn" href="prospekt_karpacz.pdf" target="_blank">Pobierz PDF</a>
   <button class="print-btn" onclick="window.print()">Drukuj / Zapisz jako PDF</button>
 </div>
