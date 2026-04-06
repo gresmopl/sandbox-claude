@@ -1,2 +1,2 @@
 # sandbox-claude
-Piaskownica do nauki Claude Code
+Piaskownica do nauki Claude Code.
