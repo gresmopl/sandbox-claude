@@ -473,14 +473,23 @@
       .no-print { display: none !important; }
       .trail-card:hover, .attr-card:hover { transform: none; box-shadow: none; }
 
-      /* Hero kompaktowy */
-      .hero { padding: 18px 28px 16px; }
-      .hero-eyebrow { font-size: 8px; margin-bottom: 7px; letter-spacing: 2px; }
-      .hero-name { font-size: 1.7rem; }
+      /* Hero kompaktowy — jasny na druku */
+      .hero {
+        padding: 18px 28px 16px;
+        background: #f0f4f1 !important;
+        border-bottom: 2px solid #1d4f33;
+      }
+      .hero::before { display: none; }
+      .hero::after { display: none; }
+      .hero-eyebrow { font-size: 8px; margin-bottom: 7px; letter-spacing: 2px; color: #1d4f33 !important; }
+      .hero-name { font-size: 1.7rem; color: #0d1f16 !important; }
+      .hero-name span { color: #1d4f33 !important; }
       .hero-meta { margin-top: 10px; gap: 14px; }
-      .hero-addr { font-size: 10px; }
-      .hero-tag { font-size: 9px; padding: 3px 9px; }
-      .hero::after { height: 36px; }
+      .hero-addr { font-size: 10px; color: #444 !important; }
+      .hero-addr strong { color: #0d1f16 !important; }
+      .hero-divider { background: #ccc !important; }
+      .hero-tag { font-size: 9px; padding: 3px 9px; background: #fff !important; border-color: #1d4f33 !important; color: #1d4f33 !important; }
+      .hero-tag .dot { background: #1d4f33 !important; }
 
       /* Body i sekcje */
       .body { padding: 18px 28px 14px; }
@@ -546,7 +555,7 @@
 <body>
 
 <div class="print-bar no-print">
-  <span style="font-family:'Inter',sans-serif;font-size:11px;color:#999;margin-right:auto;padding-left:4px;">v1.4 · 2026-04-06</span>
+  <span style="font-family:'Inter',sans-serif;font-size:11px;color:#999;margin-right:auto;padding-left:4px;">v1.5 · 2026-04-06</span>
   <a class="pdf-btn" href="prospekt_karpacz.pdf" target="_blank">Pobierz PDF</a>
   <button class="print-btn" onclick="window.print()">Drukuj / Zapisz jako PDF</button>
 </div>
