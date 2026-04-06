@@ -492,10 +492,10 @@
       .section-rule { margin-bottom: 10px; }
       .disclaimer { font-size: 9px; padding: 5px 9px; margin-bottom: 10px; }
 
-      /* Szlaki — 3 kolumny */
-      .trail-grid { grid-template-columns: 1fr 1fr 1fr; gap: 7px; }
+      /* Szlaki — 2 kolumny × 3 wiersze, koniec sekcji = łamanie strony */
+      .trail-grid { grid-template-columns: 1fr 1fr; gap: 7px; }
       .trail-card { padding: 9px 10px; }
-      .trail-card.span2 { grid-column: 1 / -1; }
+      .trail-card.span2 { grid-column: auto; }
       .chip { font-size: 8px; padding: 2px 7px; margin-bottom: 5px; }
       .trail-name { font-size: 0.85rem; margin-bottom: 3px; }
       .trail-stats { gap: 6px; margin: 4px 0; }
@@ -503,6 +503,7 @@
       .trail-desc { font-size: 9px; margin-top: 4px; line-height: 1.35; }
       .badges-row { gap: 3px; margin: 3px 0; }
       .badge { font-size: 8px; padding: 1px 6px; }
+      .section:first-of-type { page-break-after: always; }
 
       /* Atrakcje — 2 kolumny */
       .attraction-list { display: grid; grid-template-columns: 1fr 1fr; gap: 7px; }
@@ -545,7 +546,7 @@
 <body>
 
 <div class="print-bar no-print">
-  <span style="font-family:'Inter',sans-serif;font-size:11px;color:#999;margin-right:auto;padding-left:4px;">v1.2 · 2026-04-06</span>
+  <span style="font-family:'Inter',sans-serif;font-size:11px;color:#999;margin-right:auto;padding-left:4px;">v1.3 · 2026-04-06</span>
   <a class="pdf-btn" href="prospekt_karpacz.pdf" target="_blank">Pobierz PDF</a>
   <button class="print-btn" onclick="window.print()">Drukuj / Zapisz jako PDF</button>
 </div>
@@ -647,16 +648,30 @@
           <div class="trail-desc">Najwyższy wodospad w polskich Sudetach (27 m). Rodzinna ścieżka leśna. Parking: ul. Myśliwska, Szklarska Poręba.</div>
         </div>
 
-        <div class="trail-card b-cable-card span2">
-          <div class="chip" style="background:#2e1a5a;color:#c4b5fd;">🚡 2,5 km · 8 min autem / 30 min pieszo · parking: ul. Olimpijska 4</div>
-          <div class="trail-name">Kolej Linowa na Kopę — opcja bez wysiłku</div>
+        <div class="trail-card b-cable-card">
+          <div class="chip" style="background:#2e1a5a;color:#c4b5fd;">🚡 2,5 km · 8 min autem / 30 min pieszo</div>
+          <div class="trail-name">Kolej Linowa na Kopę</div>
           <div class="badges-row">
             <span class="badge b-cable">Gondola</span>
             <span class="stat" style="margin-left:4px">⏱ 7 min wjazd</span>
             <span class="stat" style="margin-left:4px">⛰ 1375 m n.p.m.</span>
-            <span class="stat" style="margin-left:4px">z Kopy na Śnieżkę: ~1 h</span>
           </div>
-          <div class="trail-desc">Wygodny wjazd bez wysiłku. Z górnej stacji spacer na Śnieżkę lub trasy widokowe grzbietem. Polecane dla dzieci i seniorów.</div>
+          <div class="trail-desc">Parking: ul. Olimpijska 4. Wygodny wjazd bez wysiłku — z górnej stacji spacer na Śnieżkę (~1 h) lub trasy widokowe grzbietem. Idealne dla dzieci i seniorów.</div>
+        </div>
+
+        <div class="trail-card b-easy-card">
+          <div class="chip">🏠 2 km · 25 min pieszo</div>
+          <div class="trail-name">Ścieżka Edukacyjna — Park Górny</div>
+          <div class="badges-row">
+            <span class="badge b-easy">Łatwy</span>
+            <span class="badge b-trail">Szlak zielony</span>
+          </div>
+          <div class="trail-stats">
+            <span class="stat">⏱ 1–1,5 h</span>
+            <span class="stat">📏 ~3 km</span>
+            <span class="stat">↑ 80 m</span>
+          </div>
+          <div class="trail-desc">Pętla przez Karpacz Górny — widoki na panoramę Karkonoszy bez wysiłku. Idealna na poranek lub wieczór. Odpowiednia dla każdego.</div>
         </div>
 
       </div>
