@@ -503,7 +503,7 @@
       .trail-desc { font-size: 9px; margin-top: 4px; line-height: 1.35; }
       .badges-row { gap: 3px; margin: 3px 0; }
       .badge { font-size: 8px; padding: 1px 6px; }
-      .section:first-of-type { page-break-after: always; }
+      .section-restaurants { page-break-before: always; }
 
       /* Atrakcje — 2 kolumny */
       .attraction-list { display: grid; grid-template-columns: 1fr 1fr; gap: 7px; }
@@ -546,7 +546,7 @@
 <body>
 
 <div class="print-bar no-print">
-  <span style="font-family:'Inter',sans-serif;font-size:11px;color:#999;margin-right:auto;padding-left:4px;">v1.3 · 2026-04-06</span>
+  <span style="font-family:'Inter',sans-serif;font-size:11px;color:#999;margin-right:auto;padding-left:4px;">v1.4 · 2026-04-06</span>
   <a class="pdf-btn" href="prospekt_karpacz.pdf" target="_blank">Pobierz PDF</a>
   <button class="print-btn" onclick="window.print()">Drukuj / Zapisz jako PDF</button>
 </div>
@@ -742,24 +742,11 @@
           </div>
         </div>
 
-        <div class="attr-card">
-          <div>
-            <div class="chip car">🚗 ~28 km · 35 min autem</div>
-            <div class="attr-name">Wodospad Kamieńczyka</div>
-            <div class="attr-addr">📍 ul. Myśliwska, Szklarska Poręba</div>
-            <div class="attr-desc">Najwyższy wodospad w polskich Sudetach (27 m). Łatwa ścieżka leśna ok. 45 min. Warto połączyć z obiadem w Szklarskiej Porębie.</div>
-          </div>
-          <div class="qr-wrap">
-            <img src="https://api.qrserver.com/v1/create-qr-code/?size=168x168&data=https%3A%2F%2Fmaps.google.com%2F%3Fq%3DWodospad%2BKamie%C5%84czyka%2BSzklarska%2BPor%C4%99ba" alt="QR">
-            <div class="qr-lbl">Google Maps<br>Wodospad</div>
-          </div>
-        </div>
-
       </div>
     </div>
 
     <!-- ═══ 3. RESTAURACJE ═══ -->
-    <div class="section">
+    <div class="section section-restaurants">
       <div class="section-head">
         <div class="section-num">03</div>
         <div class="section-title-wrap">
