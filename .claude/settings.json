@@ -1,5 +1,26 @@
 {
   "permissions": {
-    "defaultMode": "acceptEdits"
+    "defaultMode": "acceptEdits",
+    "allow": [
+      "Bash(python3 generate_prospekt.py*)",
+      "Bash(pip install *)",
+      "Bash(pip3 install *)",
+      "Bash(python3 -c *)",
+      "Bash(git status)",
+      "Bash(git diff*)",
+      "Bash(git log*)",
+      "Bash(git add *)",
+      "Bash(git commit*)",
+      "Bash(git push*)",
+      "Edit(generate_prospekt.py)",
+      "Edit(prospekt.html)",
+      "Edit(qr.html)",
+      "Edit(CLAUDE.md)",
+      "Edit(.claude/**)"
+    ]
+  },
+  "model": "claude-sonnet-4-6",
+  "attribution": {
+    "commit": "https://claude.ai/code"
   }
 }
