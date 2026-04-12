@@ -209,7 +209,27 @@ docker exec -it postgres psql -U gresmo -d maindb
 
 ---
 
-## 8. Struktura katalogów
+## 8. Swap
+
+- **Plik**: `/swapfile` — 2 GiB
+- **Trwały**: wpis w `/etc/fstab` (`/swapfile none swap sw 0 0`)
+- **Swappiness**: `vm.swappiness=10` (ustawiony w `/etc/sysctl.conf`)
+
+```bash
+fallocate -l 2G /swapfile
+chmod 600 /swapfile
+mkswap /swapfile
+swapon /swapfile
+echo '/swapfile none swap sw 0 0' >> /etc/fstab
+echo 'vm.swappiness=10' >> /etc/sysctl.conf
+sysctl vm.swappiness=10
+```
+
+> Swap aktywowany 12.04.2026. Swappiness=10 oznacza że system sięga po swap dopiero przy ~10% wolnego RAM.
+
+---
+
+## 9. Struktura katalogów
 
 ```
 /home/services/
@@ -227,7 +247,7 @@ docker exec -it postgres psql -U gresmo -d maindb
 
 ---
 
-## 9. Szybka diagnostyka
+## 10. Szybka diagnostyka
 
 ```bash
 # Status usług
