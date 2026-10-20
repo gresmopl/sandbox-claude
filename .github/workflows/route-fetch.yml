@@ -1,0 +1,16 @@
+name: route-fetch
+on:
+  push:
+    branches: [osm-fetch]
+    paths: [osm/fetch_route.py, osm/track_simpl.json]
+permissions:
+  contents: write
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: python3 osm/fetch_route.py && gzip -f osm/route_data.json
+      - run: |
+          git config user.name github-actions; git config user.email actions@github.com
+          git add osm/route_data.json.gz; git commit -m "route corridor data"; git push
