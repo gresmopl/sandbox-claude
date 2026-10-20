@@ -1,0 +1,30 @@
+name: osm-fetch
+on:
+  push:
+    branches: [osm-fetch]
+    paths: [osm/query.overpassql]
+permissions:
+  contents: write
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Query Overpass
+        run: |
+          for url in https://overpass-api.de/api/interpreter https://overpass.kumi.systems/api/interpreter https://overpass.private.coffee/api/interpreter; do
+            echo "Trying $url"
+            if curl -sf -m 240 -A "gresmosoft-parking-demo/1.0" --data-urlencode "data@osm/query.overpassql" -o osm/data.json "$url"; then
+              head -c 200 osm/data.json; break
+            fi
+          done
+          ls -la osm
+          gzip -kf osm/data.json
+          rm osm/data.json
+      - name: Commit result
+        run: |
+          git config user.name "github-actions"
+          git config user.email "actions@github.com"
+          git add osm/data.json.gz
+          git commit -m "OSM data snapshot"
+          git push
