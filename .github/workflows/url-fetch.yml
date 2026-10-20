@@ -1,0 +1,17 @@
+name: url-fetch
+on:
+  push:
+    branches: [osm-fetch]
+    paths: [osm/urls.txt]
+permissions:
+  contents: write
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: |
+          mkdir -p osm/fetched
+          while read -r name url; do [ -z "$name" ] && continue; curl -sfL -m 120 -A "gresmosoft-demo/1.0" -o "osm/fetched/$name" "$url" && echo "ok $name" || echo "FAIL $name"; done < osm/urls.txt
+          git config user.name github-actions; git config user.email actions@github.com
+          git add osm/fetched; git commit -m "fetched data" || true; git push
