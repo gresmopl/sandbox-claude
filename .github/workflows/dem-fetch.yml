@@ -1,0 +1,30 @@
+name: dem-fetch
+on:
+  push:
+    branches: [osm-fetch]
+    paths: [osm/dem.txt]
+permissions:
+  contents: write
+jobs:
+  dem:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Crop Copernicus DEM
+        run: |
+          pip install -q rasterio numpy
+          python - <<'PY'
+          import rasterio, numpy as np
+          from rasterio.windows import from_bounds
+          url="https://copernicus-dem-30m.s3.amazonaws.com/Copernicus_DSM_COG_10_N50_00_E016_00_DEM/Copernicus_DSM_COG_10_N50_00_E016_00_DEM.tif"
+          with rasterio.open(url) as src:
+              w=from_bounds(16.130,50.580,16.430,50.772,src.transform)
+              a=src.read(1,window=w)
+              t=src.window_transform(w)
+          np.savez_compressed("osm/dem.npz",z=a.astype(np.float32),t=np.array(list(t)[:6]))
+          print(a.shape,a.min(),a.max())
+          PY
+      - name: Commit
+        run: |
+          git config user.name github-actions; git config user.email actions@github.com
+          git add osm/dem.npz; git commit -m "DEM snapshot"; git push
