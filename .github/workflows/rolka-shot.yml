@@ -1,0 +1,17 @@
+name: rolka-shot
+on:
+  push:
+    branches: [rolka-assets]
+    paths: [rolka/site/shot.mjs]
+permissions:
+  contents: write
+jobs:
+  shot:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: npm i playwright@1.48.2 && npx playwright install --with-deps chromium
+      - run: node rolka/site/shot.mjs
+      - run: |
+          git config user.name "rolka-bot"; git config user.email "rolka-bot@users.noreply.github.com"
+          git add rolka/site && git commit -m "rolka: zrzuty i czcionki strony" && git push || echo brak
