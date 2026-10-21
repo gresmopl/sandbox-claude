@@ -1,0 +1,22 @@
+name: rolka-fetch
+on:
+  push:
+    branches: [rolka-assets]
+    paths: [rolka/urls.txt]
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Pobierz zdjęcia
+        run: |
+          mkdir -p rolka/img
+          while read -r u; do [ -n "$u" ] && curl -fsSL "$u" -o "rolka/img/$(basename "${u%%\?*}")"; done < rolka/urls.txt
+          ls -la rolka/img
+      - name: Zapisz w repo
+        run: |
+          git config user.name "rolka-bot"; git config user.email "rolka-bot@users.noreply.github.com"
+          git add rolka/img && git commit -m "rolka: zdjęcia ze strony" && git push || echo "brak zmian"
