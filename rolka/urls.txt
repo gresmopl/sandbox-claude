@@ -1,9 +1,6 @@
-https://a.polnazdrojdomki.workers.dev/_astro/jesien-panorama.8ZSRag4Y_Z1JrUci.webp
-https://a.polnazdrojdomki.workers.dev/_astro/jesien-taras-stol.DW_IsACA_Z2tlXVx.webp
-https://a.polnazdrojdomki.workers.dev/_astro/widok-z-okna-na-wzgorza.B2nc_XAW_Z1nFFfy.webp
-https://a.polnazdrojdomki.workers.dev/_astro/modul-salon.FN2XNw-D_ZWCTO5.webp
-https://a.polnazdrojdomki.workers.dev/_astro/wieczor-taras-zachod.DQp7tKfH_11bsXt.webp
-https://a.polnazdrojdomki.workers.dev/_astro/jesien-domy-zza-traw.B6FJZgXh_2hNB7N.webp
-https://a.polnazdrojdomki.workers.dev/_astro/modul-szczyty-frontem.xVzTEsZt_1RU5p9.webp
-https://a.polnazdrojdomki.workers.dev/_astro/jesien-stolik-okno.DpYJwk64_Z1FA1Pn.webp
-https://a.polnazdrojdomki.workers.dev/_astro/domek-salon.1dtNKW8G_R5sp6.webp
+https://d.polnazdrojdomki.workers.dev/_astro/wiosna-drzwi-na-lake.d7fAUWw0_ZUmCHb.webp
+https://d.polnazdrojdomki.workers.dev/_astro/taras-z-lezakami.CSb3JUmL_Z2tMvUz.webp
+https://d.polnazdrojdomki.workers.dev/_astro/biurko-z-laptopem.DGb-yhoM_Z1JkSF1.webp
+https://d.polnazdrojdomki.workers.dev/_astro/lato-domy-skraj-lasu.DNlYyQmy_Z114kh5.webp
+https://d.polnazdrojdomki.workers.dev/_astro/modul-sypialnia.BqJL7RQd_QStUt.webp
+https://d.polnazdrojdomki.workers.dev/_astro/zima-okno-szczytowe.B4rAthCK_ZBmxdT.webp
