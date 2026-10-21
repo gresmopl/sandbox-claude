@@ -1,0 +1,30 @@
+{
+ "fonts": [
+  "https://d.polnazdrojdomki.workers.dev/_astro/fonts/74755e032f9269c7.woff2",
+  "https://d.polnazdrojdomki.workers.dev/_astro/fonts/c704be51b74eeb8f.woff2",
+  "https://d.polnazdrojdomki.workers.dev/_astro/fonts/5423b5da5d655cd8.woff2",
+  "https://d.polnazdrojdomki.workers.dev/_astro/fonts/130d6dd200352d25.woff2"
+ ],
+ "families": {
+  "\"Bricolage Grotesque-e297116dfbbf8041\"": [
+   "A.skip-link: Przejdź do treści | rgb(243, 241, 236) 16.165px",
+   "P.mock-badge: Makieta z przykładowymi danymi | rgb(238, 241, 235) 14px",
+   "BUTTON.menu-close btn btn-ghost: Zamknij menu | rgb(36, 35, 31) 16.165px"
+  ],
+  "Fraunces-13dc0aace68b3a0c": [
+   "SPAN.logo-name: Polna Zdrój | rgb(243, 241, 236) 22px",
+   "A.: Rejestr skarg | rgb(36, 35, 31) 36px",
+   "A.: Dreszczowiec | rgb(36, 35, 31) 36px"
+  ],
+  "\"Space Mono-ddaa78ac4a1cc11a\"": [
+   "P.typed: Wpis nr 1 | rgb(36, 35, 31) 11.4584px",
+   "SPAN.stamp: Rozpatrzono | rgb(176, 48, 42) 11.0887px",
+   "SPAN.: Polna Zdrój, domki we Wleniu | rgb(36, 35, 31) 10.7931px"
+  ],
+  "Mynerve-5eea8ce66f3d5e13": [
+   "P.hand: „Za cicho. Pierwszej nocy obudziła mnie cisza.” | rgb(31, 62, 140) 17.5572px",
+   "P.signature hand: spisały Magda i Ula | rgb(85, 90, 81) 25.6px",
+   "P.hand: „Za cicho. Pierwszej nocy obudziła mnie cisza.” | rgb(31, 62, 140) 22.7px"
+  ]
+ }
+}
